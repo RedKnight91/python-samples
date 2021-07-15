@@ -9,6 +9,16 @@ class Person():
 		return ' '.join([self.firstName, self.lastName])
 
 class TestPerson(unittest.TestCase):
+	#Ran when the CLASS is created (not instanced)
+	@classmethod
+	def setUpClass(cls):
+		pass
+
+	#Runs when class is tore down (not instances)
+	@classmethod
+	def tearDownClass(cls):
+		pass
+
 	#Executed before each test
 	def setUp(self):
 		self.person = Person('John', 'Doe')

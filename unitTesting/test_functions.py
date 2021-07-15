@@ -7,7 +7,7 @@ def divide(numA, numB):
 		raise ValueError('Division by zero')
 
 	return numA / numB
-
+	
 class TestFunctions(unittest.TestCase):
 
 	#Tests MUST start with 'test_', otherwise they won't be ran
