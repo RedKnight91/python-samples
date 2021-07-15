@@ -77,7 +77,7 @@ print()
 #FORMAT: PRECISION
 
 # .n Set precision to n digits (int)
-num = 312.67189
+num = 312.67188
 
 print(f'{num:.2}')
 print(f'{num:.3}')
