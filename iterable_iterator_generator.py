@@ -6,10 +6,9 @@ class MyIterable:
 		return MyIterator(self.values)
 
 class MyIterator:
-	index = 0
-
 	def __init__(self, values):
 		self.values = values
+		self.index = 0
 
 	def __iter__(self):
 		return self
@@ -23,11 +22,15 @@ class MyIterator:
 
 		return val
 
-iterableList = MyIterable([0, 1, 2, 3, 4])
+values = [0, 1, 2, 3, 4]
+
+iterableList = MyIterable(values)
 
 #List comprehensions, for loops, and any iterating functions call iter() on our Iterable object
 for val in iterableList:
-	pass
+	print(val)
+
+print()
 
 # We can do the same by hand
 # The benefit is that we can then iterate over these iterators (which are consumed) without altering our iterable
@@ -37,7 +40,18 @@ iterator2 = iter(iterableList)
 # Iterate by hand
 while True:
 	try:
-		val = next(iterator1)
+		print(next(iterator1))
 	except StopIteration:
 		print('End of iteration')
 		break
+
+print()
+
+
+# GENERATOR
+def myGenerator(values):
+	for v in values:
+		yield v
+
+generator = myGenerator(values)
+[print(v) for v in generator]

@@ -1,12 +1,5 @@
 import unittest
-
-class Person():
-	def __init__(self, firstName, lastName):
-		self.firstName = firstName
-		self.lastName = lastName
-
-	def fullName(self):
-		return ' '.join([self.firstName, self.lastName])
+from unittesting import sampleClass
 
 class TestPerson(unittest.TestCase):
 	#Ran when the CLASS is created (not instanced)
@@ -21,7 +14,7 @@ class TestPerson(unittest.TestCase):
 
 	#Executed before each test
 	def setUp(self):
-		self.person = Person('John', 'Doe')
+		self.person = unitTesting.sampleClass.Person('John', 'Doe')
 
 	#Executed after each test
 	def tearDown(self):
@@ -34,4 +27,6 @@ class TestPerson(unittest.TestCase):
 		self.assertEqual(self.person.fullName(), 'Bob Doe')
 
 #Calling this will run all test methods
-unittest.main()
+#Using this syntax ensures the code is run only when running the class, not when importing the module
+if __name__ == '__main__':
+	unittest.main()
