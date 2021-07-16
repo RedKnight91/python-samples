@@ -1,5 +1,5 @@
 import unittest
-from unittesting import sampleClass
+from unittesting import sample_class
 
 
 class TestPerson(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestPerson(unittest.TestCase):
 
 	#Executed before each test
 	def setUp(self):
-		self.person = sampleClass.Person('John', 'Doe')
+		self.person = sample_class.Person('John', 'Doe')
 
 	#Executed after each test
 	def tearDown(self):
