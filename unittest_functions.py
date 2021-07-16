@@ -2,8 +2,7 @@ import unittest
 from unittesting import sampleFunctions
 	
 class TestFunctions(unittest.TestCase):
-
-	#Tests MUST start with 'test_', otherwise they won't be ran
+	#Tests MUST start with 'test_', otherwise they won't be run
 	def test_multiply(self):
 		result = sampleFunctions.multiply(3, 9)
 

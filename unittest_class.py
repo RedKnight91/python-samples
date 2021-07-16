@@ -1,6 +1,7 @@
 import unittest
 from unittesting import sampleClass
 
+
 class TestPerson(unittest.TestCase):
 	#Ran when the CLASS is created (not instanced)
 	@classmethod
@@ -14,12 +15,13 @@ class TestPerson(unittest.TestCase):
 
 	#Executed before each test
 	def setUp(self):
-		self.person = unitTesting.sampleClass.Person('John', 'Doe')
+		self.person = sampleClass.Person('John', 'Doe')
 
 	#Executed after each test
 	def tearDown(self):
 		pass
 
+	#Tests MUST start with 'test_', otherwise they won't be run
 	def test_fullName(self):
 		self.assertEqual(self.person.fullName(), 'John Doe')
 
