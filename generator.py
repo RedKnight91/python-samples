@@ -29,8 +29,10 @@ printSizeOf(squaredNumbers, 'Square numbers generator')
 printSizeOf(numbersList, 'Generator converted to list')
 
 
-from dataclasses import dataclass
+#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
+from dataclasses import dataclass
 @dataclass
 class Counter:
 	code: str
@@ -45,10 +47,11 @@ class Counter:
 
 	inRange = lambda self: self.counter < self.end
 
-#Sample of a more complex generator, which generates objects and iterates upon a variable of theirs
+#Complex generator, creating and iterating objects
 def counterCreator(codeStart, codeEnd, countStart, countEnd):
 	for code in range(ord(codeStart), ord(codeEnd)):
 		counter = Counter(chr(code), countStart, countEnd)
+
 		while counter.inRange():
 			counter.count()
 			yield counter
@@ -56,3 +59,24 @@ def counterCreator(codeStart, codeEnd, countStart, countEnd):
 counters = counterCreator('a', 'c', 1, 4)
 
 [print(id(c), repr(c), c.counter) for c in counters]
+
+
+#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+
+#Generator working with an iterator
+def squareGenerator(values):
+	iterator = iter(values)
+	value = next(iterator)	#Necessary to start the iterator
+
+	while True:
+		square = value * value
+		yield square		#Won't exit the block of code
+
+		try:
+			value = next(iterator)	#Used to stop iteration
+		except StopIteration:
+			break
+
+values = [1, 2, 3]
+[print('Square:', square) for square in squareGenerator(values)]
