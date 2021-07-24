@@ -1,5 +1,8 @@
 #TODO tuple
 
+tuple()
+()
+
 #namedtuple
 from collections import namedtuple
 

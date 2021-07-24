@@ -40,7 +40,7 @@ iterator2 = iter(iterableList)
 # Iterate by hand
 while True:
 	try:
-		print(next(iterator1))
+		print(next(iterator1))		# Next returns the next iterator item
 	except StopIteration:
 		print('End of iteration')
 		break

@@ -47,3 +47,9 @@ try:
 	print({1, 2, 3, 4, 5}[3:])
 except:
 	print('Cannot slice a set')
+
+# slice() returns a Slice iterable object to use for slicing
+indices = slice(0, 10, 3)
+print(indices)
+
+print('Hello world'[indices])
