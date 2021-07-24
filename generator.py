@@ -1,9 +1,3 @@
-def printSizeOf(obj, message):
-	import sys
-	
-	size = sys.getsizeof(obj)
-	print(size, message)
-
 def prevNumbers(num):
 	for i in range(0, num):
 		yield i
@@ -23,7 +17,10 @@ squaredNumbers = squareNumbers(numbers)
 #Calling list() on a generator will convert it to a list
 numbersList = list(numbers)
 
-#The list() variables contain all of the values in memory and are much heavier
+import sys
+printSizeOf = lambda obj, message: print(sys.getsizeof(obj), message)
+
+#lists are fully held in memory (heavier)
 printSizeOf(numbers, 'Previous numbers generator')
 printSizeOf(squaredNumbers, 'Square numbers generator')
 printSizeOf(numbersList, 'Generator converted to list')
@@ -47,10 +44,13 @@ class Counter:
 
 	inRange = lambda self: self.counter < self.end
 
+ordRange = lambda start, end: range(ord(start), ord(end))
+
 #Complex generator, creating and iterating objects
 def counterCreator(codeStart, codeEnd, countStart, countEnd):
-	for code in range(ord(codeStart), ord(codeEnd)):
-		counter = Counter(chr(code), countStart, countEnd)
+	for code in ordRange(codeStart, codeEnd):
+		code = chr(code)
+		counter = Counter(code, countStart, countEnd)
 
 		while counter.inRange():
 			counter.count()

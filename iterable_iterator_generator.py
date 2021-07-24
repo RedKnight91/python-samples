@@ -47,6 +47,9 @@ while True:
 
 print()
 
+# Checking if an object is iterable
+hasattr(object, '__iter__')
+
 
 # GENERATOR
 def myGenerator(values):
@@ -55,3 +58,9 @@ def myGenerator(values):
 
 generator = myGenerator(values)
 [print(v) for v in generator]
+
+# A comprehension within parentheses is also a generator
+generator = (v for v in values)
+[print(v) for v in generator]
+
+print(type(generator))
